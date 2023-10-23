@@ -69,7 +69,7 @@ elif(endpoint == 'add'):
     while(count <= n):
         number = lab6_pb2.addMsg(a=random.randint(1, 100), b=random.randint(1, 100))
         response = stub.add(number)
-        print(response.a)
+        print(response.sum)
         count += 1
 
     total_time = perf_counter() - start
@@ -85,7 +85,7 @@ elif(endpoint == 'dotProduct'):
         #print("inside while. count: ", count)
         number = lab6_pb2.dotProductMsg(a=generate_random_vector(100), b=generate_random_vector(100))
         response = stub.dotProduct(number)
-        print(response.a)
+        print(response.dotproduct)
         count += 1
 
     total_time = perf_counter() - start
