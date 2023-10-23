@@ -65,7 +65,7 @@ host = sys.argv[1]
 cmd = sys.argv[2]
 reps = int(sys.argv[3])
 
-addr = f"http://{host}:5000"
+addr = f"http://{host}:8080"
 print(f"Running {reps} reps against {addr}")
 
 if cmd == 'rawImage':

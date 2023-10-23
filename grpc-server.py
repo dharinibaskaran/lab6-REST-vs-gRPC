@@ -15,6 +15,7 @@ class addServicer(lab6_pb2_grpc.addServicer):
     def add(self, request, context):
         response = lab6_pb2.addMsg()
         response.a = request.a + request.b
+        print(response)
         return response
 
 class dotProductServicer(lab6_pb2_grpc.dotProductServicer):
@@ -26,6 +27,7 @@ class dotProductServicer(lab6_pb2_grpc.dotProductServicer):
             result += vector1[i] * vector2[i]
         response = lab6_pb2.dotProductReply()
         response.dotproduct = result
+        print(response)
         return response
 
 class imageServicer(lab6_pb2_grpc.imageServicer):
@@ -37,11 +39,11 @@ class imageServicer(lab6_pb2_grpc.imageServicer):
             'width': req_img.size[0],
             'height': req_img.size[1]
         }
-        print("result", result['width'])
+        #print("result", result['width'])
         response = lab6_pb2.imageReply()
         response.width = result['width']
         response.height = result['height']
-        print("response", response)
+        print(response)
         return response
     
 class jsonImageServicer(lab6_pb2_grpc.jsonImageServicer):
@@ -57,7 +59,7 @@ class jsonImageServicer(lab6_pb2_grpc.jsonImageServicer):
         response = lab6_pb2.imageReply()
         response.width = result['width']
         response.height = result['height']
-        print("response", response)
+        print(response)
         return response
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
